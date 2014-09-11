@@ -11,14 +11,13 @@
       $(document).ready(function(){
         var $body = $('body');
         var tweetsShown = 0;
-        $body.html('<div id = "updateBox"></div>');
 
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
           $tweet.text('@' + tweet.user + ': ' + tweet.message + " created at " + tweet.created_at);
-          $tweet.appendTo($body);
+          $tweet.appendTo($('#tweetBox'));
           tweetsShown++;
           index -= 1;
         }
@@ -29,6 +28,23 @@
           $update.text("Click to show " + update + " new tweets");
           $update.prependTo($('#updateBox'));       
         };
+
+        var loadMoreTweets = function(){
+          
+          var difference = streams.home.length - 1 - tweetsShown;
+          while(difference > 0){
+            tweetsShown++;
+            var tweet = streams.home[tweetsShown];
+            var $tweet = $('<div></div>');
+            $tweet.text('@' + tweet.user + ': ' + tweet.message + " created at " + tweet.created_at);
+            $tweet.prependTo($('#tweetBox'));
+            difference--;
+          }
+
+          $("#show").remove();
+          addUpdate();
+        }
+
         addUpdate();
 
         window.setInterval(function(){
@@ -37,7 +53,7 @@
         }, 1500);
 
         $('#updateBox').click('span', function(){
-          console.log('clicked');
+          loadMoreTweets();
         })
         //kicks off a function that checks streams.length
         //update how many new tweets there are and show a button to click on
@@ -45,5 +61,10 @@
       });
 
     </script>
+    <div id = "updateBox">
+    </div>
+
+    <div id = "tweetBox">
+    </div>
   </body>
 </html>
