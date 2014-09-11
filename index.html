@@ -3,22 +3,33 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" href ="style.css">
   </head>
   <body>
     <script>
 
       $(document).ready(function(){
         var $body = $('body');
+        var tweetsShown = 0;
         $body.html('');
 
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + " created at " + tweet.created_at);
           $tweet.appendTo($body);
+          tweetsShown++;
           index -= 1;
         }
+
+        var update = streams.home.length - tweetsShown;
+        var $update = $('<span></span>');
+        $update.text("Click to show " + update + " new tweets");
+        $update.prependTo($body);
+
+        //kicks off a function that checks streams.length
+        //update how many new tweets there are and show a button to click on
 
       });
 
