@@ -23,11 +23,18 @@
           index -= 1;
         }
 
-        var update = streams.home.length - tweetsShown;
-        var $update = $('<span></span>');
-        $update.text("Click to show " + update + " new tweets");
-        $update.prependTo($body);
+        var addUpdate = function(){
+          var update = streams.home.length - tweetsShown;
+          var $update = $('<span></span>');
+          $update.text("Click to show " + update + " new tweets");
+          $update.prependTo($body);       
+        };
+        addUpdate();
 
+        window.setInterval(function(){
+          $("span").remove();
+          addUpdate();
+        }, 1500);
         //kicks off a function that checks streams.length
         //update how many new tweets there are and show a button to click on
 
