@@ -11,7 +11,7 @@
       $(document).ready(function(){
         var $body = $('body');
         var tweetsShown = 0;
-        $body.html('');
+        $body.html('<div id = "updateBox"></div>');
 
         var index = streams.home.length - 1;
         while(index >= 0){
@@ -25,16 +25,20 @@
 
         var addUpdate = function(){
           var update = streams.home.length - tweetsShown;
-          var $update = $('<span></span>');
+          var $update = $('<span id = "show"></span>');
           $update.text("Click to show " + update + " new tweets");
-          $update.prependTo($body);       
+          $update.prependTo($('#updateBox'));       
         };
         addUpdate();
 
         window.setInterval(function(){
-          $("span").remove();
+          $("#show").remove();
           addUpdate();
         }, 1500);
+
+        $('#updateBox').click('span', function(){
+          console.log('clicked');
+        })
         //kicks off a function that checks streams.length
         //update how many new tweets there are and show a button to click on
 
