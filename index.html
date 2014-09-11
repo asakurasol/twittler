@@ -7,7 +7,12 @@
   </head>
   <body>
     <script>
-
+      /*todo
+        add function and class to generate time, content and user separately
+        learn css/bootstrap to make it pretty
+        make show message span more clickable
+        think about how to filter for user specific tweets
+      */
       $(document).ready(function(){
         var $body = $('body');
         var tweetsShown = 0;
@@ -55,8 +60,6 @@
         $('#updateBox').click('span', function(){
           loadMoreTweets();
         })
-        //kicks off a function that checks streams.length
-        //update how many new tweets there are and show a button to click on
 
       });
 
