@@ -5,6 +5,7 @@
     <script src="data_generator.js"></script>
     <script src = "http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
     <link rel="stylesheet" href ="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href ="style.css">
   </head>
   <body>
@@ -92,6 +93,13 @@
           loadUserTweets($(this).html());
         })
 
+        $('.form').on('click', 'button', function(){
+          writeTweet($('#write').val());
+          $('#write').val("");
+          loadMoreTweets();
+
+        })
+
       });
 
         var visitor;
@@ -103,13 +111,17 @@
 
     <div id = 'content' class = 'row'>
       <h2>twittler</h2>
-      <div class = "container col-md-4">
-      </div>
       <div class = "container col-md-6">
         <div id = "updateBox">
         </div>
 
         <div id = "tweetBox">
+        </div>
+      </div>
+      <div class = "container col-md-4">
+        <div class = 'form'>
+          <textarea id = "write" class="form-control" rows="4" placeholder="Compose a tweet"></textarea>
+          <button class="btn btn-info btn-small"><i class="icon-white icon-pencil"></i> Submit</button>
         </div>
       </div>
     </div>
