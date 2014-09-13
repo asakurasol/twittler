@@ -1,6 +1,10 @@
 
 body {
-    background-color: #b0c4de;
+      background-image: url(https://abs.twimg.com/images/themes/theme1/bg.png);
+      background-position: left 0px;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-color: #C0DEED;
 }
 
 h2{
@@ -8,9 +12,10 @@ h2{
 }
 
 #content {
-	width: 60%;
+	width: 40%;
 	margin: auto;
 	padding: 10px;
+	margin-bottom: 20px;
 
 }
 
@@ -42,4 +47,14 @@ h2{
 
 #updateBox:hover{
 	cursor: pointer;
-};
+}
+
+.time {
+	color: #b0c4de;
+	font-size: 0.9em;
+}
+
+.user {
+	font-size: 1.1em;
+	font-weight: bold;
+}

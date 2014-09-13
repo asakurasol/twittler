@@ -34,7 +34,13 @@
             var tweet = streams.home[tweetsShown];
             tweetsShown++;
             var $tweet = $('<div class = "tweet"></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message + " created at " + moment(tweet.created_at).fromNow());
+            var $user = $('<span class = "user"></span>');
+            $user.text(tweet.user);
+            var $time = $('<span class = "time"></span><br>')
+            $time.text(" @" + tweet.user + " created at " + moment(tweet.created_at).fromNow())
+            $tweet.text(tweet.message);
+            $user.prependTo($tweet);
+            $user.after($time);
             $tweet.prependTo($('#tweetBox'));
             difference--;
           }
