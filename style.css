@@ -3,6 +3,10 @@ body {
     background-color: #b0c4de;
 }
 
+h2{
+	color: #18195E;
+}
+
 #content {
 	width: 60%;
 	margin: auto;
