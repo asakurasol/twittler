@@ -3,6 +3,7 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src = "http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
     <link rel="stylesheet" href ="style.css">
   </head>
   <body>
@@ -21,7 +22,7 @@
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + " created at " + tweet.created_at);
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + " created at " + moment(tweet.created_at).fromNow());
           $tweet.appendTo($('#tweetBox'));
           tweetsShown++;
           index -= 1;
@@ -36,12 +37,13 @@
 
         var loadMoreTweets = function(){
           
-          var difference = streams.home.length - 1 - tweetsShown;
+          var difference = streams.home.length - 1;
+          tweetsShown = 0;
           while(difference > 0){
-            tweetsShown++;
             var tweet = streams.home[tweetsShown];
+            tweetsShown++;
             var $tweet = $('<div></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message + " created at " + tweet.created_at);
+            $tweet.text('@' + tweet.user + ': ' + tweet.message + " created at " + moment(tweet.created_at).fromNow());
             $tweet.prependTo($('#tweetBox'));
             difference--;
           }
@@ -58,12 +60,14 @@
         }, 1500);
 
         $('#updateBox').click('span', function(){
+          $("#tweetBox").children().remove();
           loadMoreTweets();
         })
 
       });
 
     </script>
+    <h2>Twittler</h2>
     <div id = "updateBox">
     </div>
 
