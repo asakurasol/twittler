@@ -97,7 +97,6 @@
           writeTweet($('#write').val());
           $('#write').val("");
           loadMoreTweets();
-
         })
 
       });
@@ -106,6 +105,7 @@
 
         if (!visitor){
           visitor = "panda";
+          streams.users.panda = [];
         };
     </script>
 
