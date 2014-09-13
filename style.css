@@ -27,5 +27,15 @@ body {
 }
 
 .tweet:hover{
-background: #E4E4F2; /* make this whatever you want */
+	background: #E4E4F2; /* make this whatever you want */
 }
+
+#updateBox{
+	text-align: center;
+	color: #b0c4de;
+	padding-bottom: 5px;
+}
+
+#updateBox:hover{
+	cursor: pointer;
+};
