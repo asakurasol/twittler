@@ -49,8 +49,35 @@
           addUpdate();
         }
 
+        var loadUserTweets = function(username){
+          $("#tweetBox").children().remove();
+          var difference = streams.home.length - 1;
+          tweetsShown = 0;
+          while(difference > 0){
+            var tweet = streams.home[tweetsShown];
+            tweetsShown++;
+            if(username == tweet.user){
+              var $tweet = $('<div class = "tweet"></div>');
+              var $user = $('<span class = "user"></span>');
+              $user.text(tweet.user);
+              var $time = $('<span class = "time"></span><br>')
+              $time.text(" @" + tweet.user + " created at " + moment(tweet.created_at).fromNow())
+              $tweet.text(tweet.message);
+              $user.prependTo($tweet);
+              $user.after($time);
+              $tweet.prependTo($('#tweetBox'));
+            };
+            difference--;
+          }
+
+          $("#show").remove();
+          addUpdate();
+        }
+
+
         addUpdate();
         loadMoreTweets();
+
         window.setInterval(function(){
           $("#show").remove();
           addUpdate();
@@ -59,6 +86,10 @@
         $('#updateBox').click('span', function(){
           $("#tweetBox").children().remove();
           loadMoreTweets();
+        });
+
+        $('#tweetBox').on('click', '.user', function(){
+          loadUserTweets($(this).html());
         })
 
       });
