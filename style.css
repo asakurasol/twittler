@@ -13,11 +13,19 @@ body {
 .tweet {
 	padding-top: 5px;
 	padding-bottom: 5px;
+	border-top: 1px solid;
+	border-color: #E4E4F2;
 }
 
 .container {
+	padding: 10px;
 	background-color: #FFFFFF;
 	width: 100%;
 	border:1px solid;
+	border-color: #E4E4F2;
 	border-radius: 10px;
+}
+
+.tweet:hover{
+background: #E4E4F2; /* make this whatever you want */
 }
