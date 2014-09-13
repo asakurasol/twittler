@@ -12,7 +12,7 @@ h2{
 }
 
 #content {
-	width: 40%;
+	width: 70%;
 	margin: auto;
 	padding: 10px;
 	margin-bottom: 20px;
@@ -27,12 +27,13 @@ h2{
 }
 
 .container {
+	margin: 10px;
 	padding: 10px;
 	background-color: #FFFFFF;
-	width: 100%;
 	border:1px solid;
 	border-color: #E4E4F2;
 	border-radius: 10px;
+	float: left;
 }
 
 .tweet:hover{
