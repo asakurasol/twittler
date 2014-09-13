@@ -1,0 +1,23 @@
+
+body {
+    background-color: #b0c4de;
+}
+
+#content {
+	width: 60%;
+	margin: auto;
+	padding: 10px;
+
+}
+
+.tweet {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.container {
+	background-color: #FFFFFF;
+	width: 100%;
+	border:1px solid;
+	border-radius: 10px;
+}
